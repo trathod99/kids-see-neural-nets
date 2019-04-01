@@ -7,12 +7,14 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
+        var skinhead
         $.ajax({
             url: 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=callback&track_id=31403652&apikey=0e36b02d226334df818bd7c9209687b1',
             type: 'GET',
             data: {},
             success: function (data) {
-                console.log(data);
+                skinhead = data
+                console.log(skinhead);
             },
             error: function () { },
         }); 
