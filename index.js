@@ -1,7 +1,6 @@
 // {"token_type":"bearer","access_token":"AAAAAAAAAAAAAAAAAAAAAIb19gAAAAAAY1ozuEmN%2BPqdpA5rXm%2FwG2Qf4Cg%3Dv2aixiExWlsKL3wE4SF9m52um6ovUXVWdQe7aZYDwFqPFmiB9I"}⏎
 const brain = require("brain.js");
 const request = require("request");
-const data = require('./data.json');
 const network = new brain.recurrent.LSTM();
 
 const options = {
@@ -20,9 +19,21 @@ function callback(error, response, body) {
       info.forEach(tweet => {
           kanye_tweets.push(tweet.text);
       });
-      // console.log(kanye_tweets);
+      console.log(kanye_tweets);
     }
 }
+
+/*
+
+
+
+
+IT MIGHT BE A TIMEOUT ISSUE - ADD A TIMEOUT TO THE JSON REQUEST OR SOMETHING
+
+
+
+
+*/
 
 request(options, callback);
 
@@ -33,9 +44,11 @@ const kanye_tweet = {
 
 kanye_json_data = []
 
-// Turns array of tweets into an array of JSON objects
+// Turns array of tweets into an array of JSON objects - DOESN'T WORK
 function textToJSON(text) {
-    console.log(typeof kanye_tweets);
+    /* var isArr = kanye_tweets instanceof Array;
+    console.log(isArr); */
+    console.log(kanye_tweets); 
     kanye_tweets.forEach(tweet_text => {
         t = new kanye_tweet;
         t.text = tweet_text;
